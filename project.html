@@ -1,0 +1,1670 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Explore selected frontend development projects by Adeleye R. Oluwafemi, including business websites, school websites, portfolios and church websites.">
+
+    <title>Projects - Adeleye R. Oluwafemi</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+        /* =========================================
+           1. GLOBAL SETTINGS
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0b0e14;
+            --bg-header: rgba(11, 14, 20, 0.94);
+            --bg-card: #121721;
+            --bg-card-hover: #181f2c;
+            --bg-img-placeholder: #1a202c;
+
+            --accent-orange: #f97316;
+            --accent-orange-hover: #ea580c;
+
+            --tag-bg: rgba(255, 255, 255, 0.05);
+            --tag-border: rgba(255, 255, 255, 0.1);
+
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+
+            --border-color: #1e2634;
+
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 14px;
+            --radius-xl: 18px;
+            --radius-full: 9999px;
+
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Light theme */
+        body.light-theme {
+            --bg-dark: #f8fafc;
+            --bg-header: rgba(248, 250, 252, 0.96);
+            --bg-card: #ffffff;
+            --bg-card-hover: #f1f5f9;
+            --bg-img-placeholder: #e2e8f0;
+
+            --tag-bg: rgba(15, 23, 42, 0.04);
+            --tag-border: rgba(15, 23, 42, 0.12);
+
+            --text-main: #172033;
+            --text-muted: #526075;
+            --text-dim: #64748b;
+
+            --border-color: #e2e8f0;
+        }
+
+        html {
+            scroll-behaviour: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", Roboto, sans-serif;
+
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        button {
+            font: inherit;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button:focus-visible,
+        a:focus-visible {
+            outline: 2px solid var(--accent-orange);
+            outline-offset: 4px;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* =========================================
+           2. HEADER AND NAVIGATION
+        ========================================= */
+
+        .site-header {
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: var(--bg-header);
+            border-bottom: 1px solid var(--border-color);
+
+            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(16px);
+        }
+
+        .header-container {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            flex-shrink: 0;
+        }
+
+        .brand-mark {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 10px;
+            background: var(--accent-orange);
+            color: #ffffff;
+
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.3;
+        }
+
+        .brand-name {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-weight: 750;
+        }
+
+        .brand-role {
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            margin-top: 3px;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.3rem;
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 0;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            font-weight: 550;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent-orange);
+        }
+
+        .nav-link.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            height: 2px;
+            background: var(--accent-orange);
+            border-radius: var(--radius-full);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .theme-toggle,
+        .menu-toggle {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--bg-card);
+            color: var(--text-main);
+
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover,
+        .menu-toggle:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+
+        .header-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+
+            padding: 0.72rem 1rem;
+            border-radius: var(--radius-md);
+
+            background: var(--accent-orange);
+            color: #ffffff;
+
+            font-size: 0.82rem;
+            font-weight: 650;
+            white-space: nowrap;
+        }
+
+        .header-cta:hover {
+            background: var(--accent-orange-hover);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        /* =========================================
+           3. PROJECTS INTRODUCTION
+        ========================================= */
+
+        .projects-intro {
+            padding: 4.5rem 0 3.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-tag {
+            display: block;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.75rem;
+        }
+
+        .projects-intro-title {
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -0.035em;
+            color: var(--text-main);
+        }
+
+        .projects-intro-title span {
+            color: var(--accent-orange);
+        }
+
+        .projects-intro-desc {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 780px;
+            line-height: 1.8;
+        }
+
+        /* =========================================
+           4. PROJECT CARDS
+        ========================================= */
+
+        .projects-section {
+            padding: 4.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.75rem;
+        }
+
+        .project-card {
+            min-width: 0;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+
+            display: flex;
+            flex-direction: column;
+
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            border-color: rgba(249, 115, 22, 0.55);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            background-color: var(--bg-img-placeholder);
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.04);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-title {
+            font-size: 1.15rem;
+            font-weight: 750;
+            color: var(--text-main);
+            margin-bottom: 0.65rem;
+            letter-spacing: -0.01em;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tag {
+            background-color: var(--tag-bg);
+            border: 1px solid var(--tag-border);
+            color: var(--text-muted);
+            font-size: 0.725rem;
+            font-weight: 550;
+            padding: 0.25rem 0.6rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .project-links {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.2rem;
+            margin-top: auto;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--text-main);
+            font-size: 0.82rem;
+            font-weight: 650;
+        }
+
+        .project-link:hover {
+            color: var(--accent-orange);
+        }
+
+        .project-link i {
+            font-size: 0.8rem;
+        }
+
+        /* =========================================
+           5. CALL TO ACTION
+        ========================================= */
+
+        .cta-section {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cta-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: 3.5rem 2.5rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-box h2 {
+            font-size: clamp(1.5rem, 4vw, 1.85rem);
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 0.85rem;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-box p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 620px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+
+            background-color: var(--accent-orange);
+            color: #ffffff;
+
+            font-weight: 650;
+            font-size: 0.925rem;
+            padding: 0.85rem 1.6rem;
+
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+
+            box-shadow: 0 4px 14px rgba(249, 115, 22, 0.25);
+        }
+
+        .btn-cta:hover {
+            background-color: var(--accent-orange-hover);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.3);
+        }
+
+        /* =========================================
+           6. FOOTER
+        ========================================= */
+
+        .site-footer {
+            background-color: #07090d;
+            padding: 4.5rem 0 2rem;
+            color: #94a3b8;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 3.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .footer-name {
+            font-size: 1.2rem;
+            font-weight: 750;
+            color: #ffffff;
+            margin-bottom: 0.85rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            max-width: 320px;
+        }
+
+        .footer-heading {
+            color: #f8fafc;
+            font-size: 0.8rem;
+            font-weight: 750;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .footer-links a:hover {
+            color: #f97316;
+        }
+
+        .footer-contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .footer-contact-item {
+            font-size: 0.9rem;
+            overflow-wrap: anywhere;
+        }
+
+        .footer-contact-item a {
+            color: #94a3b8;
+        }
+
+        .footer-contact-item a:hover {
+            color: #f97316;
+        }
+
+        .footer-contact-item i {
+            width: 20px;
+            color: #f97316;
+            margin-right: 0.4rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-sm);
+
+            background-color: #121721;
+            border: 1px solid #1e2634;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #94a3b8;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .social-icon:hover {
+            color: #f97316;
+            border-color: #f97316;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-size: 0.85rem;
+            color: #64748b;
+
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom a {
+            color: #94a3b8;
+        }
+
+        .footer-bottom a:hover {
+            color: #f97316;
+        }
+
+        /* =========================================
+           7. RESPONSIVE TABLET LAYOUT
+        ========================================= */
+
+        @media (max-width: 1050px) {
+            .header-container {
+                gap: 1rem;
+            }
+
+            .main-nav {
+                gap: 0.9rem;
+            }
+
+            .nav-link {
+                font-size: 0.77rem;
+            }
+
+            .brand-name {
+                font-size: 0.85rem;
+            }
+
+            .header-cta {
+                padding: 0.68rem 0.8rem;
+                font-size: 0.78rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .menu-toggle {
+                display: inline-flex;
+            }
+
+            .header-actions {
+                margin-left: auto;
+            }
+
+            .main-nav {
+                position: fixed;
+                top: 78px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+
+                height: calc(100dvh - 78px);
+                overflow-y: auto;
+
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: flex-start;
+                gap: 0.25rem;
+
+                padding: 1.5rem;
+
+                background: var(--bg-dark);
+                border-top: 1px solid var(--border-color);
+
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transform: translateY(-8px);
+
+                transition: var(--transition);
+            }
+
+            .main-nav.is-open {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+
+            .nav-link {
+                display: block;
+                width: 100%;
+                padding: 1rem;
+                border-bottom: 1px solid var(--border-color);
+                font-size: 0.95rem;
+            }
+
+            .nav-link.active::after {
+                left: 1rem;
+                right: auto;
+                width: 35px;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* =========================================
+           8. RESPONSIVE MOBILE LAYOUT
+        ========================================= */
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 1.1rem;
+            }
+
+            .header-container {
+                min-height: 72px;
+                gap: 0.6rem;
+            }
+
+            .brand {
+                gap: 0.5rem;
+            }
+
+            .brand-mark {
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
+            }
+
+            .brand-name {
+                font-size: 0.76rem;
+            }
+
+            .brand-role {
+                font-size: 0.65rem;
+            }
+
+            .header-cta {
+                display: none;
+            }
+
+            .theme-toggle,
+            .menu-toggle {
+                width: 36px;
+                height: 36px;
+            }
+
+            .main-nav {
+                top: 72px;
+                height: calc(100dvh - 72px);
+            }
+
+            .projects-intro {
+                padding: 3.2rem 0 2.8rem;
+            }
+
+            .projects-intro-desc {
+                font-size: 0.95rem;
+            }
+
+            .projects-section {
+                padding: 3rem 0;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .project-img-wrapper {
+                height: 220px;
+            }
+
+            .project-content {
+                padding: 1.25rem;
+            }
+
+            .cta-section {
+                padding: 3.5rem 0;
+            }
+
+            .cta-box {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .cta-box p {
+                font-size: 0.92rem;
+            }
+
+            .site-footer {
+                padding: 3.5rem 0 1.5rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2.25rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .footer-brand {
+                grid-column: auto;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behaviour: auto !important;
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================
+         HEADER
+    ========================================= -->
+
+    <header class="site-header">
+        <div class="container header-container">
+
+            <a href="http://localhost/ofemfirstdb/index.php/"
+               class="brand"
+               aria-label="Adeleye R. Oluwafemi home">
+
+                <span class="brand-mark">AO</span>
+
+                <span class="brand-text">
+                    <span class="brand-name">Adeleye R. Oluwafemi</span>
+                    <span class="brand-role">Frontend Web Developer</span>
+                </span>
+            </a>
+
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+
+                <a href="index.html"
+                   class="nav-link">Home</a>
+
+                <a href="about.html"
+                   class="nav-link">About</a>
+
+                <a href="services.html"
+                   class="nav-link">Services</a>
+
+                <a href="skill.html"
+                   class="nav-link">Skills</a>
+
+                <a href="project.html"
+                   class="nav-link active"
+                   aria-current="page">Projects</a>
+
+                <a href="resume.html"
+                   class="nav-link">Resume</a>
+
+                <a href="contact.html"
+                   class="nav-link">Contact</a>
+
+            </nav>
+
+            <div class="header-actions">
+
+                <button class="theme-toggle"
+                        id="themeToggle"
+                        type="button"
+                        aria-label="Switch to light theme"
+                        title="Toggle theme">
+
+                    <i class="fa-solid fa-sun" aria-hidden="true"></i>
+                </button>
+
+                <a href="./ASSET FOLDER/Adeleye-Oluwafemi-CV (6).pdf"
+                   class="header-cta"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    <i class="fa-solid fa-download" aria-hidden="true"></i>
+                    Download CV
+                </a>
+
+                <button class="menu-toggle"
+                        id="menuToggle"
+                        type="button"
+                        aria-label="Open navigation menu"
+                        aria-controls="mainNav"
+                        aria-expanded="false">
+
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+
+            </div>
+        </div>
+    </header>
+
+
+    <!-- =========================================
+         MAIN PROJECTS CONTENT
+    ========================================= -->
+
+    <main id="main-content">
+
+        <!-- Projects Introduction -->
+
+        <section class="projects-intro">
+            <div class="container">
+
+                <span class="section-tag">MY PORTFOLIO / PROJECTS</span>
+
+                <h1 class="projects-intro-title">
+                    Selected <span>work</span>
+                </h1>
+
+                <p class="projects-intro-desc">
+                    Explore a selection of websites and digital experiences
+                    I have created for businesses, educational institutions,
+                    creators and organisations. Each project demonstrates my
+                    commitment to responsive design, usability and practical
+                    digital solutions.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- Projects Grid -->
+
+        <section class="projects-section" aria-label="Portfolio projects">
+            <div class="container">
+
+                <div class="projects-grid">
+
+                    <!-- PROJECT 1: BLOOM CAFÉ -->
+
+                    <article class="project-card">
+
+                        <div class="project-img-wrapper">
+                            <img
+                                class="project-img"
+                                src="./ASSET FOLDER/bloom cafe.jpeg"
+                                alt="Bloom Café website design preview"
+                                loading="lazy">
+                        </div>
+
+                        <div class="project-content">
+
+                            <h2 class="project-title">Bloom Café Website</h2>
+
+                            <p class="project-desc">
+                                A modern café website featuring a curated
+                                menu, elegant gallery, online reservations
+                                and a seamless responsive experience.
+                            </p>
+
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">Responsive Design</span>
+                            </div>
+
+                            <div class="project-links">
+
+                                <a href="https://bloom-coffee-co.base44.app/"
+                                   class="project-link"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+
+                                    <i class="fa-solid fa-arrow-up-right-from-square"
+                                       aria-hidden="true"></i>
+                                    Live demo
+                                </a>
+
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- PROJECT 2: FITPRO -->
+
+                    <article class="project-card">
+
+                        <div class="project-img-wrapper">
+                            <img
+                                class="project-img"
+                                src="./ASSET FOLDER/fitness brond.jpeg"
+                                alt="FitPro fitness landing page design"
+                                loading="lazy">
+                        </div>
+
+                        <div class="project-content">
+
+                            <h2 class="project-title">FitPro Landing Page</h2>
+
+                            <p class="project-desc">
+                                A fitness-focused landing page designed
+                                to present coaching services, communicate
+                                programme benefits and encourage potential
+                                clients to take action.
+                            </p>
+
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">Flexbox</span>
+                                <span class="project-tag">Landing Page</span>
+                            </div>
+
+                            <div class="project-links">
+
+                                <a href="https://aquatic-fit-pro-pulse.base44.app"
+                                   class="project-link"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+
+                                    <i class="fa-solid fa-arrow-up-right-from-square"
+                                       aria-hidden="true"></i>
+                                    Live demo
+                                </a>
+
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- PROJECT 3: JORDAN ADE -->
+
+                    <article class="project-card">
+
+                        <div class="project-img-wrapper">
+                            <img
+                                class="project-img"
+                                src="./ASSET FOLDER/Creator_media_kit_design_mock-up_202608281824.jpeg"
+                                alt="Jordan Ade creator portfolio and media kit design"
+                                loading="lazy">
+                        </div>
+
+                        <div class="project-content">
+
+                            <h2 class="project-title">Jordan Ade Creator Kit</h2>
+
+                            <p class="project-desc">
+                                A creator portfolio microsite designed to
+                                showcase personal branding and digital content,
+                                supported by promotional video concepts
+                                edited in CapCut.
+                            </p>
+
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">CapCut</span>
+                                <span class="project-tag">Branding</span>
+                            </div>
+
+                            <div class="project-links">
+
+                                <a href="https://jordan-ade-kit.base44.app"
+                                   class="project-link"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+
+                                    <i class="fa-solid fa-arrow-up-right-from-square"
+                                       aria-hidden="true"></i>
+                                    Live demo
+                                </a>
+
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- PROJECT 4: FIRST CLASS ACADEMY -->
+
+                    <article class="project-card">
+
+                        <div class="project-img-wrapper">
+                            <img
+                                class="project-img"
+                                src="./ASSET FOLDER/school academin.jpeg"
+                                alt="First Class Academy school website preview"
+                                loading="lazy">
+                        </div>
+
+                        <div class="project-content">
+
+                            <h2 class="project-title">First Class Academy</h2>
+
+                            <p class="project-desc">
+                                A multi-section school website presenting
+                                academics, admissions, facilities, school life
+                                and useful information for parents and
+                                prospective pupils.
+                            </p>
+
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">Responsive Design</span>
+                                <span class="project-tag">Education</span>
+                            </div>
+
+                            <div class="project-links">
+
+                                <a href="https://first-class-path.base44.app"
+                                   class="project-link"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+
+                                    <i class="fa-solid fa-arrow-up-right-from-square"
+                                       aria-hidden="true"></i>
+                                    Live demo
+                                </a>
+
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- PROJECT 5: FEM POULTRY FARM -->
+
+                    <article class="project-card">
+
+                        <div class="project-img-wrapper">
+                            <img
+                                class="project-img"
+                                src="./ASSET FOLDER/poultry.jpeg"
+                                alt="FEM Poultry Farm website design"
+                                loading="lazy">
+                        </div>
+
+                        <div class="project-content">
+
+                            <h2 class="project-title">FEM Poultry Farm</h2>
+
+                            <p class="project-desc">
+                                A poultry business website concept featuring
+                                product listings, ordering information,
+                                delivery details and customer contact options
+                                to help customers discover available products.
+                            </p>
+
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">Business Website</span>
+                                <span class="project-tag">E-commerce Concept</span>
+                            </div>
+
+                            <div class="project-links">
+
+                                <a href="https://fem-faith-flow.base44.app"
+                                   class="project-link"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+
+                                    <i class="fa-solid fa-arrow-up-right-from-square"
+                                       aria-hidden="true"></i>
+                                    Live demo
+                                </a>
+
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- PROJECT 6: FEM CHRISTIAN CENTRE -->
+
+                    <article class="project-card">
+
+                        <div class="project-img-wrapper">
+                            <img
+                                class="project-img"
+                                src="./ASSET FOLDER/church place.jpeg"
+                                alt="FEM christian centre"
+                                loading="lazy">
+                        </div>
+
+                        <div class="project-content">
+
+                            <h2 class="project-title">FEM Christian Centre</h2>
+
+                            <p class="project-desc">
+                                A church website concept designed to present
+                                ministries, sermons, events, prayer requests
+                                and community information in an accessible,
+                                welcoming digital space.
+                            </p>
+
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">Church Website</span>
+                                <span class="project-tag">Responsive Design</span>
+                            </div>
+
+                            <div class="project-links">
+
+                                <a href="https://fem-fresh-farm.base44.app"
+                                   class="project-link"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+
+                                    <i class="fa-solid fa-arrow-up-right-from-square"
+                                       aria-hidden="true"></i>
+                                    Live demo
+                                </a>
+
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Call to Action -->
+
+        <section class="cta-section">
+            <div class="container">
+
+                <div class="cta-box">
+
+                    <span class="section-tag">HAVE A PROJECT IN MIND?</span>
+
+                    <h2>Your project could be next.</h2>
+
+                    <p>
+                        I am available for frontend development projects,
+                        small-business websites, landing pages, portfolio
+                        websites and website redesigns. Let us discuss your
+                        ideas and turn them into a practical digital solution.
+                    </p>
+
+                    <a href="contact.html"
+                       class="btn-cta">
+
+                        Let's talk
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <!-- Footer Brand -->
+
+                <div class="footer-brand">
+
+                    <a href="http://localhost/ofemfirstdb/index.php/"
+                       class="brand"
+                       aria-label="Return to homepage">
+
+                        <span class="brand-mark">AO</span>
+
+                        <span class="brand-text">
+                            <span class="brand-name">Adeleye R. Oluwafemi</span>
+                            <span class="brand-role">Frontend Web Developer</span>
+                        </span>
+
+                    </a>
+
+                    <p style="margin-top: 1.1rem;">
+                        I create responsive, user-friendly websites that
+                        help businesses, organisations and individuals
+                        establish a strong online presence.
+                    </p>
+
+                    <div class="footer-socials">
+
+                        <a href="https://www.facebook.com/femi.adeleye.568"
+                           class="social-icon"
+                           aria-label="Facebook"
+                           target="_blank"
+                           rel="noopener noreferrer">
+
+                            <i class="fa-brands fa-facebook-f"
+                               aria-hidden="true"></i>
+                        </a>
+
+                        <a href="https://www.youtube.com/channel/UCPejS_ru_llkmYrVcKKxejg"
+                           class="social-icon"
+                           aria-label="YouTube"
+                           target="_blank"
+                           rel="noopener noreferrer">
+
+                            <i class="fa-brands fa-youtube"
+                               aria-hidden="true"></i>
+                        </a>
+
+                        <a href="https://wa.me/2349032282164"
+                           class="social-icon"
+                           aria-label="WhatsApp"
+                           target="_blank"
+                           rel="noopener noreferrer">
+
+                            <i class="fa-brands fa-whatsapp"
+                               aria-hidden="true"></i>
+                        </a>
+
+                        <a href="https://github.com/fadele238-source"
+                           class="social-icon"
+                           aria-label="GitHub"
+                           target="_blank"
+                           rel="noopener noreferrer">
+
+                            <i class="fa-brands fa-github"
+                               aria-hidden="true"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+
+                <!-- Footer Navigation -->
+
+                <div class="footer-navigation">
+
+                    <h2 class="footer-heading">Navigate</h2>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="about.html">About</a>
+                        </li>
+
+                        <li>
+                            <a href="services.html">Services</a>
+                        </li>
+
+                        <li>
+                            <a href="skill.html">Skills</a>
+                        </li>
+
+                        <li>
+                            <a href="project.html"
+                               aria-current="page">Projects</a>
+                        </li>
+
+                        <li>
+                            <a href="resume.html">Resume</a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html">Contact</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+                <!-- Footer Contact Details -->
+
+                <div class="footer-contact">
+
+                    <h2 class="footer-heading">Get in touch</h2>
+
+                    <ul class="footer-contact-list">
+
+                        <li class="footer-contact-item">
+                            <i class="fa-regular fa-envelope"
+                               aria-hidden="true"></i>
+
+                            <a href="mailto:fadele238@gmail.com">
+                                fadele238@gmail.com
+                            </a>
+                        </li>
+
+                        <li class="footer-contact-item">
+                            <i class="fa-solid fa-phone"
+                               aria-hidden="true"></i>
+
+                            <a href="tel:+2349032282164">
+                                09032282164
+                            </a>
+                        </li>
+
+                        <li class="footer-contact-item">
+                            <i class="fa-solid fa-location-dot"
+                               aria-hidden="true"></i>
+
+                            Nigeria — available worldwide
+                        </li>
+
+                        <li class="footer-contact-item">
+                            <i class="fa-brands fa-whatsapp"
+                               aria-hidden="true"></i>
+
+                            <a href="https://wa.me/2349032282164"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                Chat on WhatsApp
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <!-- Footer Copyright -->
+
+            <div class="footer-bottom">
+
+                <p>
+                    &copy; <span id="currentYear">2026</span>
+                    Adeleye R. Oluwafemi. All rights reserved.
+                </p>
+
+                <p>
+                    Designed with
+                    <i class="fa-solid fa-heart"
+                       style="color: #f97316;"
+                       aria-hidden="true"></i>
+                    and built for the web.
+                </p>
+
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* -------------------------------------
+               MOBILE NAVIGATION
+            ------------------------------------- */
+
+            const menuToggle = document.getElementById('menuToggle');
+            const mainNav = document.getElementById('mainNav');
+            const menuIcon = menuToggle
+                ? menuToggle.querySelector('i')
+                : null;
+
+            function closeMenu() {
+                if (!menuToggle || !mainNav) return;
+
+                mainNav.classList.remove('is-open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.setAttribute('aria-label', 'Open navigation menu');
+
+                document.body.classList.remove('menu-open');
+
+                if (menuIcon) {
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                }
+            }
+
+            if (menuToggle && mainNav) {
+
+                menuToggle.addEventListener('click', function () {
+
+                    const isOpen = mainNav.classList.toggle('is-open');
+
+                    menuToggle.setAttribute(
+                        'aria-expanded',
+                        String(isOpen)
+                    );
+
+                    menuToggle.setAttribute(
+                        'aria-label',
+                        isOpen
+                            ? 'Close navigation menu'
+                            : 'Open navigation menu'
+                    );
+
+                    document.body.classList.toggle('menu-open', isOpen);
+
+                    if (menuIcon) {
+                        menuIcon.classList.toggle('fa-bars', !isOpen);
+                        menuIcon.classList.toggle('fa-xmark', isOpen);
+                    }
+                });
+
+                mainNav.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', closeMenu);
+                });
+
+                document.addEventListener('keydown', function (event) {
+                    if (event.key === 'Escape') {
+                        closeMenu();
+                    }
+                });
+
+                window.addEventListener('resize', function () {
+                    if (window.innerWidth > 900) {
+                        closeMenu();
+                    }
+                });
+            }
+
+
+            /* -------------------------------------
+               LIGHT / DARK THEME TOGGLE
+            ------------------------------------- */
+
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = themeToggle
+                ? themeToggle.querySelector('i')
+                : null;
+
+            function applyTheme(isLight) {
+
+                document.body.classList.toggle('light-theme', isLight);
+
+                if (themeIcon) {
+                    themeIcon.classList.toggle('fa-sun', !isLight);
+                    themeIcon.classList.toggle('fa-moon', isLight);
+                }
+
+                if (themeToggle) {
+                    themeToggle.setAttribute(
+                        'aria-label',
+                        isLight
+                            ? 'Switch to dark theme'
+                            : 'Switch to light theme'
+                    );
+                }
+            }
+
+            if (themeToggle) {
+
+                let savedTheme = null;
+
+                try {
+                    savedTheme = localStorage.getItem('portfolio-theme');
+                } catch (error) {
+                    // The page still works if browser storage is unavailable.
+                }
+
+                applyTheme(savedTheme === 'light');
+
+                themeToggle.addEventListener('click', function () {
+
+                    const isLight = !document.body.classList.contains(
+                        'light-theme'
+                    );
+
+                    applyTheme(isLight);
+
+                    try {
+                        localStorage.setItem(
+                            'portfolio-theme',
+                            isLight ? 'light' : 'dark'
+                        );
+                    } catch (error) {
+                        // Theme switching remains available for this visit.
+                    }
+                });
+            }
+
+
+            /* -------------------------------------
+               AUTOMATIC COPYRIGHT YEAR
+            ------------------------------------- */
+
+            const yearElement = document.getElementById('currentYear');
+
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+
+
+            /* -------------------------------------
+               SMOOTH SCROLL FOR IN-PAGE LINKS
+            ------------------------------------- */
+
+            document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+
+                link.addEventListener('click', function (event) {
+
+                    const targetId = this.getAttribute('href');
+
+                    if (!targetId || targetId === '#') {
+                        return;
+                    }
+
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        event.preventDefault();
+
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+        });
+    </script>
+
+</body>
+</html>

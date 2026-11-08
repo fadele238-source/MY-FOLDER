@@ -1,0 +1,1719 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="View the resume, professional experience, skills and education of Adeleye R. Oluwafemi, Frontend Web Developer.">
+
+    <title>Resume - Adeleye R. Oluwafemi</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+        /* =========================================
+           1. RESET AND GLOBAL VARIABLES
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0b0e14;
+            --bg-header: rgba(11, 14, 20, 0.95);
+            --bg-card: #121721;
+            --bg-card-hover: #181f2c;
+            --bg-pdf-viewer: #1a202c;
+
+            --accent-orange: #f97316;
+            --accent-orange-hover: #ea580c;
+
+            --tag-bg: rgba(255, 255, 255, 0.05);
+            --tag-border: rgba(255, 255, 255, 0.1);
+
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+
+            --border-color: #1e2634;
+
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 14px;
+            --radius-xl: 18px;
+            --radius-full: 9999px;
+
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Light theme */
+
+        body.light-theme {
+            --bg-dark: #f8fafc;
+            --bg-header: rgba(248, 250, 252, 0.96);
+            --bg-card: #ffffff;
+            --bg-card-hover: #f1f5f9;
+            --bg-pdf-viewer: #e2e8f0;
+
+            --tag-bg: rgba(15, 23, 42, 0.04);
+            --tag-border: rgba(15, 23, 42, 0.12);
+
+            --text-main: #172033;
+            --text-muted: #526075;
+            --text-dim: #64748b;
+
+            --border-color: #e2e8f0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", Roboto, sans-serif;
+
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        button {
+            font: inherit;
+        }
+
+        button:focus-visible,
+        a:focus-visible {
+            outline: 2px solid var(--accent-orange);
+            outline-offset: 4px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* =========================================
+           2. HEADER AND NAVIGATION
+        ========================================= */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+
+            background: var(--bg-header);
+            border-bottom: 1px solid var(--border-color);
+
+            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(16px);
+        }
+
+        .header-container {
+            min-height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.25rem;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            flex-shrink: 0;
+        }
+
+        .brand-mark {
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 10px;
+            background: var(--accent-orange);
+            color: #ffffff;
+
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.3;
+        }
+
+        .brand-name {
+            color: var(--text-main);
+            font-size: 0.9rem;
+            font-weight: 750;
+        }
+
+        .brand-role {
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            margin-top: 3px;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.15rem;
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 0;
+
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-weight: 550;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent-orange);
+        }
+
+        .nav-link.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            height: 2px;
+            background: var(--accent-orange);
+            border-radius: var(--radius-full);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            flex-shrink: 0;
+        }
+
+        .theme-toggle,
+        .menu-toggle {
+            width: 40px;
+            height: 40px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--bg-card);
+            color: var(--text-main);
+
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover,
+        .menu-toggle:hover {
+            color: var(--accent-orange);
+            border-color: var(--accent-orange);
+        }
+
+        .header-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+
+            padding: 0.72rem 0.9rem;
+            border-radius: var(--radius-md);
+
+            background: var(--accent-orange);
+            color: #ffffff;
+
+            font-size: 0.8rem;
+            font-weight: 650;
+            white-space: nowrap;
+        }
+
+        .header-cta:hover {
+            background: var(--accent-orange-hover);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        /* =========================================
+           3. RESUME INTRODUCTION
+        ========================================= */
+
+        .resume-intro {
+            padding: 4.5rem 0 3rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-tag {
+            display: block;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.75rem;
+        }
+
+        .resume-intro-title {
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -0.035em;
+            color: var(--text-main);
+        }
+
+        .resume-intro-title span {
+            color: var(--accent-orange);
+        }
+
+        .resume-intro-desc {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 780px;
+            line-height: 1.8;
+            margin-bottom: 1.75rem;
+        }
+
+        /* =========================================
+           4. ACTION BUTTONS
+        ========================================= */
+
+        .action-buttons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+
+            font-weight: 650;
+            font-size: 0.9rem;
+            padding: 0.75rem 1.35rem;
+
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-orange);
+            color: #ffffff;
+
+            box-shadow: 0 4px 14px rgba(249, 115, 22, 0.25);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-orange-hover);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+            transform: translateY(-2px);
+        }
+
+        /* =========================================
+           5. MAIN RESUME LAYOUT
+        ========================================= */
+
+        .resume-section {
+            padding: 4rem 0 5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .resume-column-title {
+            font-size: 1.25rem;
+            font-weight: 750;
+            color: var(--text-main);
+            margin-bottom: 2rem;
+            letter-spacing: -0.01em;
+        }
+
+        .resume-group {
+            margin-bottom: 3rem;
+        }
+
+        /* =========================================
+           6. EXPERIENCE AND EDUCATION TIMELINE
+        ========================================= */
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2.25rem;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .item-title {
+            font-size: 1.05rem;
+            font-weight: 750;
+            color: var(--text-main);
+        }
+
+        .item-date {
+            font-size: 0.78rem;
+            font-weight: 650;
+            color: var(--text-dim);
+
+            background-color: var(--tag-bg);
+            border: 1px solid var(--border-color);
+
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--radius-sm);
+            white-space: nowrap;
+        }
+
+        .item-subtitle {
+            font-size: 0.9rem;
+            color: var(--accent-orange);
+            font-weight: 550;
+            margin-bottom: 0.75rem;
+        }
+
+        .item-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .item-bullets li {
+            position: relative;
+            padding-left: 1.25rem;
+
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .item-bullets li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-orange);
+            font-size: 1rem;
+        }
+
+        /* =========================================
+           7. ACTUAL PDF VIEWER
+        ========================================= */
+
+        .pdf-viewer-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+
+            display: flex;
+            flex-direction: column;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .pdf-viewer-header {
+            padding: 1.2rem 1.25rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .pdf-viewer-header h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.35rem;
+        }
+
+        .pdf-viewer-header p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .pdf-viewer-frame {
+            display: block;
+            width: 100%;
+            height: 600px;
+            border: 0;
+            background: #e2e8f0;
+        }
+
+        .pdf-viewer-fallback {
+            padding: 1.25rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.8;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .pdf-viewer-fallback a {
+            color: var(--accent-orange);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        /* =========================================
+           8. FOOTER
+        ========================================= */
+
+        .site-footer {
+            background-color: #07090d;
+            padding: 4.5rem 0 2rem;
+            color: #94a3b8;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 3.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .footer-name {
+            font-size: 1.2rem;
+            font-weight: 750;
+            color: #ffffff;
+            margin-bottom: 0.85rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            max-width: 320px;
+        }
+
+        .footer-heading {
+            color: #f8fafc;
+            font-size: 0.8rem;
+            font-weight: 750;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .footer-links a:hover {
+            color: #f97316;
+        }
+
+        .footer-contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .footer-contact-item {
+            font-size: 0.9rem;
+            overflow-wrap: anywhere;
+        }
+
+        .footer-contact-item a {
+            color: #94a3b8;
+        }
+
+        .footer-contact-item a:hover {
+            color: #f97316;
+        }
+
+        .footer-contact-item i {
+            width: 20px;
+            color: #f97316;
+            margin-right: 0.4rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-sm);
+
+            background-color: #121721;
+            border: 1px solid #1e2634;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #94a3b8;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .social-icon:hover {
+            color: #f97316;
+            border-color: #f97316;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-size: 0.85rem;
+            color: #64748b;
+
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom a {
+            color: #94a3b8;
+        }
+
+        .footer-bottom a:hover {
+            color: #f97316;
+        }
+
+        /* =========================================
+           9. TABLET RESPONSIVENESS
+        ========================================= */
+
+        @media (max-width: 1050px) {
+            .main-nav {
+                gap: 0.8rem;
+            }
+
+            .nav-link {
+                font-size: 0.75rem;
+            }
+
+            .brand-name {
+                font-size: 0.82rem;
+            }
+
+            .header-cta {
+                font-size: 0.75rem;
+                padding: 0.7rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .menu-toggle {
+                display: inline-flex;
+            }
+
+            .header-actions {
+                margin-left: auto;
+            }
+
+            .main-nav {
+                position: fixed;
+                top: 78px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+
+                height: calc(100vh - 78px);
+                height: calc(100dvh - 78px);
+                overflow-y: auto;
+
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: flex-start;
+                gap: 0.25rem;
+
+                padding: 1.5rem;
+
+                background: var(--bg-dark);
+                border-top: 1px solid var(--border-color);
+
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transform: translateY(-8px);
+
+                transition: var(--transition);
+            }
+
+            .main-nav.is-open {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+
+            .nav-link {
+                display: block;
+                width: 100%;
+                padding: 1rem;
+
+                border-bottom: 1px solid var(--border-color);
+                font-size: 0.95rem;
+            }
+
+            .nav-link.active::after {
+                left: 1rem;
+                right: auto;
+                width: 35px;
+            }
+
+            .resume-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .pdf-viewer-frame {
+                height: 650px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* =========================================
+           10. MOBILE RESPONSIVENESS
+        ========================================= */
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 1.1rem;
+            }
+
+            .header-container {
+                min-height: 72px;
+                gap: 0.6rem;
+            }
+
+            .brand {
+                gap: 0.5rem;
+            }
+
+            .brand-mark {
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
+            }
+
+            .brand-name {
+                font-size: 0.75rem;
+            }
+
+            .brand-role {
+                font-size: 0.64rem;
+            }
+
+            .header-cta {
+                display: none;
+            }
+
+            .theme-toggle,
+            .menu-toggle {
+                width: 36px;
+                height: 36px;
+            }
+
+            .main-nav {
+                top: 72px;
+                height: calc(100vh - 72px);
+                height: calc(100dvh - 72px);
+            }
+
+            .resume-intro {
+                padding: 3.2rem 0 2.7rem;
+            }
+
+            .resume-intro-desc {
+                font-size: 0.95rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .resume-section {
+                padding: 3rem 0 3.5rem;
+            }
+
+            .timeline-header {
+                flex-direction: column;
+                gap: 0.45rem;
+            }
+
+            .item-title {
+                font-size: 1rem;
+            }
+
+            .item-date {
+                white-space: normal;
+            }
+
+            .pdf-viewer-frame {
+                height: 500px;
+            }
+
+            .site-footer {
+                padding: 3.5rem 0 1.5rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2.25rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .footer-brand {
+                grid-column: auto;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================
+         HEADER
+    ========================================= -->
+
+    <header class="site-header">
+        <div class="container header-container">
+
+            <a href="http://localhost/ofemfirstdb/index.php/"
+               class="brand"
+               aria-label="Adeleye R. Oluwafemi homepage">
+
+                <span class="brand-mark">AO</span>
+
+                <span class="brand-text">
+                    <span class="brand-name">Adeleye R. Oluwafemi</span>
+                    <span class="brand-role">Frontend Web Developer</span>
+                </span>
+            </a>
+
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+
+                <a href="index.html"
+                   class="nav-link">Home</a>
+
+                <a href="about.html"
+                   class="nav-link">About</a>
+
+                <a href="services.html"
+                   class="nav-link">Services</a>
+
+                <a href="skill.html"
+                   class="nav-link">Skills</a>
+
+                <a href="project.html"
+                   class="nav-link">Projects</a>
+
+                <a href="resume.html"
+                   class="nav-link active"
+                   aria-current="page">Resume</a>
+
+                <a href="contact.html"
+                   class="nav-link">Contact</a>
+
+            </nav>
+
+            <div class="header-actions">
+
+                <button class="theme-toggle"
+                        id="themeToggle"
+                        type="button"
+                        aria-label="Switch to light theme"
+                        title="Toggle colour theme">
+
+                    <i class="fa-solid fa-sun" aria-hidden="true"></i>
+                </button>
+
+                <a href="./ASSET FOLDER/Adeleye-Oluwafemi-CV (6).pdf"
+                   class="header-cta"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    <i class="fa-solid fa-download" aria-hidden="true"></i>
+                    Download CV
+                </a>
+
+                <button class="menu-toggle"
+                        id="menuToggle"
+                        type="button"
+                        aria-label="Open navigation menu"
+                        aria-controls="mainNav"
+                        aria-expanded="false">
+
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+
+            </div>
+        </div>
+    </header>
+
+
+    <!-- =========================================
+         MAIN RESUME CONTENT
+    ========================================= -->
+
+    <main id="main-content">
+
+        <!-- Resume Introduction -->
+
+        <section class="resume-intro">
+            <div class="container">
+
+                <span class="section-tag">RESUME / PROFESSIONAL PROFILE</span>
+
+                <h1 class="resume-intro-title">
+                    Experience, <span>at a glance.</span>
+                </h1>
+
+                <p class="resume-intro-desc">
+                    Explore my professional profile, work experience,
+                    education and technical skills. You can view the CV
+                    below, download the PDF or open it in a new browser tab.
+                </p>
+
+                <div class="action-buttons">
+
+                    <a href="./ASSET FOLDER/Adeleye-Oluwafemi-CV (6).pdf"
+                       download
+                       class="btn-primary">
+
+                        <i class="fa-solid fa-download" aria-hidden="true"></i>
+                        Download CV (PDF)
+                    </a>
+
+                    <a href="./ASSET FOLDER/Adeleye-Oluwafemi-CV (6).pdf"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn-secondary">
+
+                        <i class="fa-solid fa-arrow-up-right-from-square"
+                           aria-hidden="true"></i>
+                        Open CV in new tab
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Resume Details and PDF Viewer -->
+
+        <section class="resume-section">
+            <div class="container">
+
+                <div class="resume-grid">
+
+                    <!-- LEFT COLUMN -->
+
+                    <div class="resume-left-col">
+
+                        <!-- Work Experience -->
+
+                        <section class="resume-group">
+
+                            <h2 class="resume-column-title">
+                                Work experience
+                            </h2>
+
+                            <article class="timeline-item">
+
+                                <div class="timeline-header">
+
+                                    <h3 class="item-title">
+                                        Freelance Frontend Developer
+                                    </h3>
+
+                                    <span class="item-date">
+                                        2024 — Present
+                                    </span>
+
+                                </div>
+
+                                <p class="item-subtitle">
+                                    Self-employed / Freelance
+                                </p>
+
+                                <ul class="item-bullets">
+
+                                    <li>
+                                        Designed and developed responsive
+                                        website concepts and landing pages
+                                        for businesses, organisations and
+                                        individual creators.
+                                    </li>
+
+                                    <li>
+                                        Used HTML, CSS and JavaScript to
+                                        structure web content, style layouts
+                                        and introduce interactive features.
+                                    </li>
+
+                                    <li>
+                                        Worked on portfolio websites and
+                                        digital concepts for education,
+                                        business, fitness and community
+                                        organisations.
+                                    </li>
+
+                                    <li>
+                                        Focused on responsive layouts,
+                                        usability and clear presentation
+                                        across desktop and mobile screens.
+                                    </li>
+
+                                </ul>
+                            </article>
+
+
+                            <article class="timeline-item">
+
+                                <div class="timeline-header">
+
+                                    <h3 class="item-title">
+                                        Video Editing and Digital Content
+                                    </h3>
+
+                                    <span class="item-date">
+                                        2023 — Present
+                                    </span>
+
+                                </div>
+
+                                <p class="item-subtitle">
+                                    Independent projects
+                                </p>
+
+                                <ul class="item-bullets">
+
+                                    <li>
+                                        Developed video-editing skills
+                                        using CapCut for short-form
+                                        educational, promotional and
+                                        social media content.
+                                    </li>
+
+                                    <li>
+                                        Explored ways to combine video
+                                        content with website design and
+                                        consistent digital branding.
+                                    </li>
+
+                                </ul>
+                            </article>
+
+                        </section>
+
+
+                        <!-- Education -->
+
+                        <section class="resume-group">
+
+                            <h2 class="resume-column-title">
+                                Education and learning
+                            </h2>
+
+                            <article class="timeline-item">
+
+                                <div class="timeline-header">
+
+                                    <h3 class="item-title">
+                                        Frontend Web Development
+                                    </h3>
+
+                                    <span class="item-date">
+                                        Ongoing
+                                    </span>
+
+                                </div>
+
+                                <p class="item-subtitle">
+                                    Self-directed learning and online study
+                                </p>
+
+                                <ul class="item-bullets">
+
+                                    <li>
+                                        Developing practical skills in
+                                        HTML, CSS, JavaScript, responsive
+                                        design and website development.
+                                    </li>
+
+                                    <li>
+                                        Continuing to build portfolio
+                                        projects and improve web development
+                                        workflows.
+                                    </li>
+
+                                </ul>
+                            </article>
+
+
+                            <article class="timeline-item">
+
+                                <div class="timeline-header">
+
+                                    <h3 class="item-title">
+                                        Formal Education
+                                    </h3>
+
+                                </div>
+
+                                <p class="item-subtitle">
+                                    Add your actual qualification and
+                                    institution details here.
+                                </p>
+
+                            </article>
+
+                        </section>
+
+
+                        <!-- Skills -->
+
+                        <section class="resume-group">
+
+                            <h2 class="resume-column-title">
+                                Technical skills
+                            </h2>
+
+                            <ul class="item-bullets">
+
+                                <li>
+                                    <strong>HTML5:</strong>
+                                    Semantic page structure and accessible
+                                    content.
+                                </li>
+
+                                <li>
+                                    <strong>CSS3:</strong>
+                                    Responsive layouts, Flexbox, Grid,
+                                    styling and visual design.
+                                </li>
+
+                                <li>
+                                    <strong>JavaScript:</strong>
+                                    Interactive website features and
+                                    front-end behaviour.
+                                </li>
+
+                                <li>
+                                    <strong>CapCut:</strong>
+                                    Video editing and digital content
+                                    production.
+                                </li>
+
+                                <li>
+                                    <strong>Tools:</strong>
+                                    WordPress, browser developer tools
+                                    and AI-assisted website-building
+                                    platforms.
+                                </li>
+
+                            </ul>
+
+                        </section>
+
+                    </div>
+
+
+                    <!-- RIGHT COLUMN: REAL CV PDF -->
+
+                    <div class="resume-right-col">
+
+                        <h2 class="resume-column-title">
+                            CV document viewer
+                        </h2>
+
+                        <div class="pdf-viewer-card">
+
+                            <div class="pdf-viewer-header">
+
+                                <h3>
+                                    <i class="fa-regular fa-file-pdf"
+                                       style="color: var(--accent-orange);"
+                                       aria-hidden="true"></i>
+                                    My Curriculum Vitae
+                                </h3>
+
+                                <p>
+                                    View the CV in this panel. You can also
+                                    download the PDF or open it separately
+                                    if your browser does not display it here.
+                                </p>
+
+                            </div>
+
+                            <iframe
+                                class="pdf-viewer-frame"
+                                src="http://localhost/ofemfirstdb/wp-content/uploads/2026/10/adeleye-oluwafemi-cv-4.pdf"
+                                title="Adeleye R. Oluwafemi CV PDF viewer"
+                                loading="lazy">
+
+                                Your browser does not support embedded PDFs.
+                                Use the download or open-in-new-tab buttons
+                                above to view the CV.
+
+                            </iframe>
+
+                            <div class="pdf-viewer-fallback">
+
+                                Having trouble viewing the document?
+
+                                <a
+                                    href="http://localhost/ofemfirstdb/wp-content/uploads/2026/10/adeleye-oluwafemi-cv-4.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+
+                                    Open the CV in a new tab
+                                </a>
+
+                                or download it to your device.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <!-- Brand -->
+
+                <div class="footer-brand">
+
+                    <a href="http://localhost/ofemfirstdb/index.php/"
+                       class="brand"
+                       aria-label="Return to homepage">
+
+                        <span class="brand-mark">AO</span>
+
+                        <span class="brand-text">
+                            <span class="brand-name">
+                                Adeleye R. Oluwafemi
+                            </span>
+
+                            <span class="brand-role">
+                                Frontend Web Developer
+                            </span>
+                        </span>
+
+                    </a>
+
+                    <p style="margin-top: 1.1rem;">
+                        I create responsive, user-friendly websites
+                        that help businesses, organisations and
+                        individuals establish a strong online presence.
+                    </p>
+
+                    <div class="footer-socials">
+
+                        <a href="https://web.facebook.com/femi.adeleye.568"
+                           class="social-icon"
+                           aria-label="Facebook"
+                           target="_blank"
+                           rel="noopener noreferrer">
+
+                            <i class="fa-brands fa-facebook-f"
+                               aria-hidden="true"></i>
+                        </a>
+
+                        <a href="https://www.youtube.com/channel/UCPejS_ru_llkmYrVcKKxejg"
+                           class="social-icon"
+                           aria-label="YouTube"
+                           target="_blank"
+                           rel="noopener noreferrer">
+
+                            <i class="fa-brands fa-youtube"
+                               aria-hidden="true"></i>
+                        </a>
+
+                        <a href="https://wa.me/2349032282164"
+                           class="social-icon"
+                           aria-label="WhatsApp"
+                           target="_blank"
+                           rel="noopener noreferrer">
+
+                            <i class="fa-brands fa-whatsapp"
+                               aria-hidden="true"></i>
+                        </a>
+
+                        <a href="https://github.com/fadele238-source"
+                           class="social-icon"
+                           aria-label="GitHub"
+                           target="_blank"
+                           rel="noopener noreferrer">
+
+                            <i class="fa-brands fa-github"
+                               aria-hidden="true"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+
+                <!-- Navigation -->
+
+                <div class="footer-navigation">
+
+                    <h2 class="footer-heading">Navigate</h2>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="index.html">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="about.html">
+                                About
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="services.html">
+                                Services
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="skill.html">
+                                Skills
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="project.html">
+                                Projects
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="resume.html"
+                               aria-current="page">
+                                Resume
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+                <!-- Contact -->
+
+                <div class="footer-contact">
+
+                    <h2 class="footer-heading">Get in touch</h2>
+
+                    <ul class="footer-contact-list">
+
+                        <li class="footer-contact-item">
+
+                            <i class="fa-regular fa-envelope"
+                               aria-hidden="true"></i>
+
+                            <a href="mailto:fadele238@gmail.com">
+                                fadele238@gmail.com
+                            </a>
+
+                        </li>
+
+                        <li class="footer-contact-item">
+
+                            <i class="fa-solid fa-phone"
+                               aria-hidden="true"></i>
+
+                            <a href="tel:+2349032282164">
+                                09032282164
+                            </a>
+
+                        </li>
+
+                        <li class="footer-contact-item">
+
+                            <i class="fa-solid fa-location-dot"
+                               aria-hidden="true"></i>
+
+                            Nigeria — available worldwide
+
+                        </li>
+
+                        <li class="footer-contact-item">
+
+                            <i class="fa-brands fa-whatsapp"
+                               aria-hidden="true"></i>
+
+                            <a href="https://wa.me/2349032282164"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                Chat on WhatsApp
+                            </a>
+
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <!-- Copyright -->
+
+            <div class="footer-bottom">
+
+                <p>
+                    &copy; <span id="currentYear">2026</span>
+                    Adeleye R. Oluwafemi. All rights reserved.
+                </p>
+
+                <p>
+                    Designed with
+                    <i class="fa-solid fa-heart"
+                       style="color: #f97316;"
+                       aria-hidden="true"></i>
+                    and built for the web.
+                </p>
+
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* MOBILE NAVIGATION */
+
+            const menuToggle = document.getElementById('menuToggle');
+            const mainNav = document.getElementById('mainNav');
+
+            const menuIcon = menuToggle
+                ? menuToggle.querySelector('i')
+                : null;
+
+            function closeMenu() {
+
+                if (!menuToggle || !mainNav) return;
+
+                mainNav.classList.remove('is-open');
+
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.setAttribute(
+                    'aria-label',
+                    'Open navigation menu'
+                );
+
+                document.body.classList.remove('menu-open');
+
+                if (menuIcon) {
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                }
+            }
+
+            if (menuToggle && mainNav) {
+
+                menuToggle.addEventListener('click', function () {
+
+                    const isOpen = mainNav.classList.toggle('is-open');
+
+                    menuToggle.setAttribute(
+                        'aria-expanded',
+                        String(isOpen)
+                    );
+
+                    menuToggle.setAttribute(
+                        'aria-label',
+                        isOpen
+                            ? 'Close navigation menu'
+                            : 'Open navigation menu'
+                    );
+
+                    document.body.classList.toggle(
+                        'menu-open',
+                        isOpen
+                    );
+
+                    if (menuIcon) {
+                        menuIcon.classList.toggle('fa-bars', !isOpen);
+                        menuIcon.classList.toggle('fa-xmark', isOpen);
+                    }
+
+                });
+
+                mainNav.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', closeMenu);
+                });
+
+                document.addEventListener('keydown', function (event) {
+
+                    if (event.key === 'Escape') {
+                        closeMenu();
+                    }
+
+                });
+
+                window.addEventListener('resize', function () {
+
+                    if (window.innerWidth > 900) {
+                        closeMenu();
+                    }
+
+                });
+            }
+
+
+            /* LIGHT AND DARK THEME */
+
+            const themeToggle = document.getElementById('themeToggle');
+
+            const themeIcon = themeToggle
+                ? themeToggle.querySelector('i')
+                : null;
+
+            function applyTheme(isLight) {
+
+                document.body.classList.toggle(
+                    'light-theme',
+                    isLight
+                );
+
+                if (themeIcon) {
+                    themeIcon.classList.toggle('fa-sun', !isLight);
+                    themeIcon.classList.toggle('fa-moon', isLight);
+                }
+
+                if (themeToggle) {
+                    themeToggle.setAttribute(
+                        'aria-label',
+                        isLight
+                            ? 'Switch to dark theme'
+                            : 'Switch to light theme'
+                    );
+                }
+            }
+
+            if (themeToggle) {
+
+                let savedTheme = null;
+
+                try {
+                    savedTheme = localStorage.getItem('portfolio-theme');
+                } catch (error) {
+                    // Theme switching still works without local storage.
+                }
+
+                applyTheme(savedTheme === 'light');
+
+                themeToggle.addEventListener('click', function () {
+
+                    const isLight = !document.body.classList.contains(
+                        'light-theme'
+                    );
+
+                    applyTheme(isLight);
+
+                    try {
+                        localStorage.setItem(
+                            'portfolio-theme',
+                            isLight ? 'light' : 'dark'
+                        );
+                    } catch (error) {
+                        // The selected theme remains active for this visit.
+                    }
+
+                });
+            }
+
+
+            /* AUTOMATIC COPYRIGHT YEAR */
+
+            const yearElement = document.getElementById('currentYear');
+
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+
+
+            /* SMOOTH SCROLL FOR INTERNAL LINKS */
+
+            document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+
+                link.addEventListener('click', function (event) {
+
+                    const targetId = this.getAttribute('href');
+
+                    if (!targetId || targetId === '#') {
+                        return;
+                    }
+
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+
+                        event.preventDefault();
+
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+
+                    }
+
+                });
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>

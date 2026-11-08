@@ -1,0 +1,1848 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#130e09">
+  <meta name="description" content="Adeleye R. Oluwafemi is a frontend web developer building fast, accessible and responsive websites.">
+  <title>Adeleye R. Oluwafemi | Frontend Web Developer</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+
+  <style>
+    /* =========================================
+       1. GLOBAL STYLES AND COLOUR VARIABLES
+    ========================================= */
+
+    :root {
+      --background: #130e09;
+      --background-alt: #0a0807;
+      --card: #181412;
+      --card-hover: #221c19;
+      --text: #f8fafc;
+      --muted: #a1a1aa;
+      --dim: #71717a;
+      --border: #27201c;
+      --orange: #f97316;
+      --orange-hover: #ea580c;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 20px;
+    }
+
+    body {
+      min-width: 320px;
+      overflow-x: hidden;
+      background: var(--background);
+      color: var(--text);
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    body, button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 4px;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* =========================================
+       2. HEADER AND NAVIGATION
+    ========================================= */
+
+    .site-header {
+      position: relative;
+      z-index: 1000;
+      width: 100%;
+      min-height: 86px;
+      background: var(--background);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+    }
+
+    .navbar {
+      width: 100%;
+      min-height: 86px;
+      padding: 0 24px 0 29px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      flex-shrink: 0;
+      min-width: 320px;
+    }
+
+    .brand-logo {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffb84f, #ff9630);
+      color: #241508;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 15px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .brand-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-name {
+      font-size: 16px;
+      font-weight: 750;
+      line-height: 1.15;
+      white-space: nowrap;
+    }
+
+    .brand-role {
+      font-size: 13px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(16px, 2.1vw, 30px);
+    }
+
+    .nav-links a {
+      position: relative;
+      color: #c9c1b8;
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--orange);
+    }
+
+    .nav-links a.active {
+      font-weight: 700;
+    }
+
+    .nav-links a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -10px;
+      height: 2px;
+      background: var(--orange);
+      border-radius: 2px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-left: 12px;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle {
+      width: 30px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      background: transparent;
+      border: none;
+      color: #e6dfd7;
+      border-radius: 8px;
+    }
+
+    .theme-toggle:hover {
+      color: var(--orange);
+    }
+
+    .theme-toggle svg {
+      width: 21px;
+      height: 21px;
+    }
+
+    .download-btn {
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 11px;
+      border: 1px solid rgba(255, 197, 119, 0.25);
+      background: linear-gradient(110deg, #ff9b35, #ffb44e);
+      color: #241508;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 32px;
+      height: 38px;
+      place-items: center;
+      background: transparent;
+      color: var(--text);
+      border: none;
+      border-radius: 6px;
+    }
+
+    .menu-toggle svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    /* =========================================
+       3. LIGHT THEME
+    ========================================= */
+
+    body.light-theme {
+      --background: #fffaf3;
+      --background-alt: #f7f2eb;
+      --card: #ffffff;
+      --card-hover: #f8eee2;
+      --text: #21180f;
+      --muted: #756a5e;
+      --dim: #756a5e;
+      --border: rgba(30, 20, 10, 0.12);
+    }
+
+    body.light-theme .site-header {
+      border-color: var(--border);
+    }
+
+    body.light-theme .nav-links a {
+      color: #5c5146;
+    }
+
+    body.light-theme .nav-links a:hover,
+    body.light-theme .nav-links a.active {
+      color: #b96812;
+    }
+
+    body.light-theme .nav-links a.active::after {
+      background: #b96812;
+    }
+
+    body.light-theme .theme-toggle {
+      color: #3d3023;
+    }
+
+    body.light-theme .progress-bar-bg {
+      background: #eee5da;
+    }
+
+    body.light-theme .footer {
+      background: #f1e9df;
+    }
+
+    body.light-theme .footer-bottom {
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    /* =========================================
+       4. BUTTONS AND SECTION HEADINGS
+    ========================================= */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 14px;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(249, 115, 22, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      background: var(--card-hover);
+      border-color: var(--muted);
+      transform: translateY(-2px);
+    }
+
+    .section-tag {
+      display: block;
+      color: var(--orange);
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 40px;
+    }
+
+    /* =========================================
+       5. HERO / HOME SECTION
+    ========================================= */
+
+    .hero {
+      padding: 80px 0 72px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-subtitle {
+      display: block;
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      color: var(--text);
+      font-size: clamp(38px, 4.3vw, 54px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      letter-spacing: -0.035em;
+    }
+
+    .hero-title span {
+      color: var(--orange);
+    }
+
+    .hero-description {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 28px;
+      max-width: 580px;
+    }
+
+    .hero-features {
+      list-style: none;
+      margin-bottom: 34px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hero-features li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    .hero-features li i {
+      color: var(--orange);
+      font-size: 17px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      aspect-ratio: 4 / 5;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+      color: #07090d;
+    }
+
+    .hero-image-wrapper:hover .hero-image {
+      transform: scale(1.03);
+    }
+
+    /* =========================================
+       6. SERVICES SECTION
+    ========================================= */
+
+    .services {
+      padding: 80px 0;
+      background: var(--background-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 44px;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .availability-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(249, 115, 22, 0.1);
+      border: 1px solid rgba(249, 115, 22, 0.25);
+      padding: 9px 15px;
+      border-radius: var(--radius-full);
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 8px var(--orange);
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.2); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 30px 24px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(249, 115, 22, 0.45);
+      box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.4);
+      background: var(--card-hover);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(249, 115, 22, 0.1);
+      color: var(--orange);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 23px;
+      margin-bottom: 24px;
+    }
+
+    .service-title {
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .service-description {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+      flex-grow: 1;
+    }
+
+    /* =========================================
+       7. SKILLS / TOOLKIT SECTION
+    ========================================= */
+
+    .toolkit {
+      padding: 80px 0;
+    }
+
+    .toolkit-header {
+      margin-bottom: 40px;
+    }
+
+    .toolkit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      transition: var(--transition);
+    }
+
+    .skill-card:hover {
+      border-color: rgba(249, 115, 22, 0.4);
+      transform: translateY(-3px);
+    }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .skill-name {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .skill-percentage {
+      font-weight: 700;
+      color: var(--orange);
+      font-size: 17px;
+    }
+
+    .skill-desc {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 8px;
+      background: #0d0a08;
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      width: 0;
+      height: 100%;
+      background: var(--orange);
+      border-radius: var(--radius-full);
+      transition: width 1.2s ease-in-out;
+    }
+
+    .progress-bar-fill.animated {
+      width: var(--skill-width);
+    }
+
+    .full-skills-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--orange);
+      font-weight: 600;
+      margin-top: 32px;
+      font-size: 15px;
+    }
+
+    .full-skills-link:hover {
+      text-decoration: underline;
+      gap: 12px;
+    }
+
+    /* =========================================
+       8. CALL-TO-ACTION SECTION
+    ========================================= */
+
+    .cta-section {
+      padding: 64px 0;
+      background: var(--background-alt);
+    }
+
+    .cta-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 56px 36px;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .cta-title {
+      font-size: 35px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .cta-desc {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================================
+       9. FOOTER
+    ========================================= */
+
+    .footer {
+      --footer-card: #171d27;
+      background: #07090d;
+      padding: 64px 0 30px;
+      border-top: 1px solid var(--border);
+      color: #94a3b8;
+      line-height: 1.7;
+    }
+
+    .footer .container {
+      max-width: 1080px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.5fr;
+      gap: 48px;
+      margin-bottom: 52px;
+    }
+
+    .footer-brand .footer-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.8;
+      max-width: 320px;
+    }
+
+    .footer-heading {
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      color: var(--orange);
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .footer-contact-item i {
+      color: var(--orange);
+      width: 16px;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .footer-socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .social-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 6px;
+      background: var(--footer-card);
+      border: 1px solid #232d3d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      transition: var(--transition);
+    }
+
+    .social-icon:hover {
+      color: var(--orange);
+      border-color: var(--orange);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      padding-top: 26px;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: #64748b;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* =========================================
+       10. TABLET RESPONSIVENESS
+    ========================================= */
+
+    @media (max-width: 1100px) {
+      .navbar {
+        gap: 14px;
+        padding: 0 20px;
+      }
+
+      .brand {
+        min-width: 260px;
+      }
+
+      .nav-links {
+        gap: 16px;
+      }
+
+      .nav-links a {
+        font-size: 13px;
+      }
+
+      .header-actions {
+        gap: 8px;
+        margin-left: 4px;
+      }
+
+      .download-btn {
+        padding: 0 12px;
+      }
+
+      .hero-grid {
+        gap: 40px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* =========================================
+       11. MOBILE NAVIGATION AND LAYOUT
+    ========================================= */
+
+    @media (max-width: 900px) {
+      .navbar {
+        min-height: 78px;
+      }
+
+      .brand {
+        min-width: 0;
+        margin-right: auto;
+      }
+
+      .menu-toggle {
+        display: grid;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 12px 22px 20px;
+        background: var(--background);
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 12px 22px rgba(0, 0, 0, 0.2);
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .nav-links.is-open {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .nav-links a {
+        padding: 13px 8px;
+        font-size: 15px;
+      }
+
+      .nav-links a + a {
+        border-top: 1px solid var(--border);
+      }
+
+      .nav-links a.active::after {
+        display: none;
+      }
+
+      .nav-links a.active {
+        background: rgba(249, 115, 22, 0.08);
+        border-radius: 5px;
+        padding-left: 14px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+
+      .hero-content {
+        order: 1;
+      }
+
+      .hero-image-container {
+        order: 0;
+      }
+
+      .hero-image-wrapper {
+        max-width: 320px;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-features {
+        align-items: flex-start;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+      }
+
+      .hero-ctas {
+        justify-content: center;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    /* =========================================
+       12. SMALL MOBILE SCREENS
+    ========================================= */
+
+    @media (max-width: 600px) {
+      .container {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .navbar {
+        padding: 0 14px;
+        gap: 8px;
+        min-height: 72px;
+      }
+
+      .brand {
+        gap: 8px;
+      }
+
+      .brand-logo {
+        width: 39px;
+        height: 39px;
+        font-size: 13px;
+      }
+
+      .brand-name {
+        font-size: 12px;
+      }
+
+      .brand-role {
+        font-size: 10px;
+      }
+
+      .header-actions {
+        gap: 5px;
+        margin-left: 0;
+      }
+
+      .download-btn {
+        min-height: 36px;
+        padding: 0 9px;
+        border-radius: 8px;
+        font-size: 11px;
+      }
+
+      .theme-toggle {
+        width: 25px;
+      }
+
+      .hero {
+        padding: 52px 0;
+      }
+
+      .hero-title {
+        font-size: 36px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-ctas .btn {
+        width: 100%;
+      }
+
+      .services,
+      .toolkit {
+        padding: 56px 0;
+      }
+
+      .services-header {
+        align-items: flex-start;
+      }
+
+      .services-grid,
+      .toolkit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card,
+      .skill-card {
+        padding: 24px;
+      }
+
+      .section-title {
+        font-size: 27px;
+      }
+
+      .availability-badge {
+        font-size: 11px;
+      }
+
+      .cta-section {
+        padding: 48px 0;
+      }
+
+      .cta-box {
+        padding: 38px 20px;
+      }
+
+      .cta-title {
+        font-size: 27px;
+      }
+
+      .cta-desc {
+        font-size: 15px;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .cta-buttons .btn {
+        width: 100%;
+      }
+
+      .footer {
+        padding: 48px 0 24px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .footer-brand {
+        grid-column: auto;
+      }
+
+      .footer-bottom {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 370px) {
+      .brand-role {
+        display: none;
+      }
+
+      .brand-name {
+        font-size: 11px;
+      }
+
+      .download-btn {
+        padding: 0 7px;
+        font-size: 10px;
+      }
+
+      .header-actions {
+        gap: 3px;
+      }
+
+      .hero-title {
+        font-size: 32px;
+      }
+    }
+
+    /* Respect reduced-motion accessibility preferences */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================
+       HEADER
+  ========================================== -->
+
+  <header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+
+      <a class="brand"
+         href="http://localhost/ofemfirstdb/index.php/home/"
+         aria-label="Adeleye R. Oluwafemi - Home">
+
+        <span class="brand-logo">AO</span>
+
+        <span class="brand-info">
+          <span class="brand-name">Adeleye R. Oluwafemi</span>
+          <span class="brand-role">Frontend Web Developer</span>
+        </span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="skill.html">Skills</a>
+        <a href="project.html">Projects</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="header-actions">
+
+        <!-- Dark / Light Theme Toggle -->
+        <button class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Switch to light theme"
+                title="Toggle colour theme">
+
+          <svg id="themeIcon"
+               viewBox="0 0 24 24"
+               fill="none"
+               aria-hidden="true">
+            <path d="M20.2 15.1A8.3 8.3 0 0 1 8.9 3.8
+                     8.5 8.5 0 1 0 20.2 15.1Z"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <!-- Download CV -->
+        <a class="download-btn"
+           href="./ASSET FOLDER/Adeleye-Oluwafemi-CV (6).pdf"
+           download="Adeleye-Oluwafemi-CV.pdf">
+          Download CV
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-controls="navLinks"
+                aria-expanded="false">
+
+          <svg viewBox="0 0 24 24"
+               fill="none"
+               aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"/>
+          </svg>
+        </button>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- =========================================
+       MAIN HOME PAGE
+  ========================================== -->
+
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-grid">
+
+          <div class="hero-content">
+            <span class="hero-subtitle">Frontend Web Developer</span>
+
+            <h1 class="hero-title">
+              Hi, I'm <span>Adeleye R.<br>Oluwafemi</span>
+            </h1>
+
+            <p class="hero-description">
+              I design and build websites that load fast, look sharp
+              on every screen and make small businesses and creators
+              look properly professional online.
+            </p>
+
+            <ul class="hero-features">
+              <li>
+                <i class="fa-solid fa-check" aria-hidden="true"></i>
+                Mobile-first, responsive layouts
+              </li>
+              <li>
+                <i class="fa-solid fa-check" aria-hidden="true"></i>
+                Clean, semantic and accessible code
+              </li>
+              <li>
+                <i class="fa-solid fa-check" aria-hidden="true"></i>
+                Fast load times and SEO-ready pages
+              </li>
+            </ul>
+
+            <div class="hero-ctas">
+              <a href="project.html"
+                 class="btn btn-primary">
+                View Projects <span aria-hidden="true">&rarr;</span>
+              </a>
+
+              <a href="contact.html"
+                 class="btn btn-outline">
+                Contact Me
+              </a>
+
+              <a href="./ASSET FOLDER/Adeleye-Oluwafemi-CV (6).pdf"
+                 class="btn btn-outline"
+                 download="Adeleye-Oluwafemi-CV.pdf">
+                <i class="fa-regular fa-file-pdf" aria-hidden="true"></i>
+                Download CV
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-image-container">
+            <div class="hero-image-wrapper">
+              <img
+                class="hero-image"
+                src="./ASSET FOLDER/my image.jpg"
+                alt="Adeleye R. Oluwafemi, frontend web developer"
+                loading="eager">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+      <div class="container">
+
+        <div class="services-header">
+          <div>
+            <span class="section-tag">What I can do for you</span>
+            <h2 class="section-title">
+              Four services, one goal: a site that works.
+            </h2>
+          </div>
+
+          <div class="availability-badge">
+            <span class="status-dot" aria-hidden="true"></span>
+            Open to work &bull; Remote Freelance Contract
+          </div>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">&lt;/&gt;</div>
+            <h3 class="service-title">Website Development</h3>
+            <p class="service-description">
+              Custom, hand-coded websites built with clean HTML,
+              CSS and JavaScript—fast to load and easy to maintain.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+            </div>
+            <h3 class="service-title">Responsive Design</h3>
+            <p class="service-description">
+              Layouts that feel intentional on every screen,
+              from small Android phones to widescreen desktops.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <i class="fa-regular fa-file-code"></i>
+            </div>
+            <h3 class="service-title">Landing Pages</h3>
+            <p class="service-description">
+              High-converting single pages for products, events
+              and campaigns, with clear calls to action.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <i class="fa-solid fa-wrench"></i>
+            </div>
+            <h3 class="service-title">Website Maintenance</h3>
+            <p class="service-description">
+              Ongoing care so your site stays current: content
+              updates, fixes, backups and performance checks.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="toolkit" id="skills">
+      <div class="container">
+
+        <div class="toolkit-header">
+          <span class="section-tag">Current toolkit</span>
+          <h2 class="section-title">My Skills &amp; Technologies</h2>
+          <p class="section-subtitle">
+            The tools I use to build websites and digital content.
+          </p>
+        </div>
+
+        <div class="toolkit-grid">
+
+          <article class="skill-card">
+            <div class="skill-header">
+              <span class="skill-name">HTML5</span>
+              <span class="skill-percentage">90%</span>
+            </div>
+            <p class="skill-desc">Semantic structure and accessibility</p>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill"
+                   style="--skill-width: 90%"
+                   role="progressbar"
+                   aria-label="HTML5 proficiency"
+                   aria-valuemin="0"
+                   aria-valuemax="100"
+                   aria-valuenow="90"></div>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-header">
+              <span class="skill-name">CSS3</span>
+              <span class="skill-percentage">85%</span>
+            </div>
+            <p class="skill-desc">Flexbox, Grid and animations</p>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill"
+                   style="--skill-width: 85%"
+                   role="progressbar"
+                   aria-label="CSS3 proficiency"
+                   aria-valuemin="0"
+                   aria-valuemax="100"
+                   aria-valuenow="85"></div>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-header">
+              <span class="skill-name">JavaScript</span>
+              <span class="skill-percentage">75%</span>
+            </div>
+            <p class="skill-desc">DOM, ES6+ and fetch APIs</p>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill"
+                   style="--skill-width: 75%"
+                   role="progressbar"
+                   aria-label="JavaScript proficiency"
+                   aria-valuemin="0"
+                   aria-valuemax="100"
+                   aria-valuenow="75"></div>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-header">
+              <span class="skill-name">CapCut (Video Editing)</span>
+              <span class="skill-percentage">80%</span>
+            </div>
+            <p class="skill-desc">Promo edits and motion content</p>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill"
+                   style="--skill-width: 80%"
+                   role="progressbar"
+                   aria-label="CapCut proficiency"
+                   aria-valuemin="0"
+                   aria-valuemax="100"
+                   aria-valuenow="80"></div>
+            </div>
+          </article>
+
+        </div>
+
+        <a href="skill.html"
+           class="full-skills-link">
+          Full skills breakdown <span aria-hidden="true">&rarr;</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- CALL-TO-ACTION SECTION -->
+    <section class="cta-section" id="contact-cta">
+      <div class="container">
+
+        <div class="cta-box">
+          <h2 class="cta-title">Have a project in mind?</h2>
+
+          <p class="cta-desc">
+            Tell me what you need and I'll reply with a clear plan,
+            timeline and price — no jargon.
+          </p>
+
+          <div class="cta-buttons">
+            <a href="contact.html"
+               class="btn btn-primary">
+              Start a conversation
+            </a>
+
+            <a href="resume.html"
+               class="btn btn-outline">
+              View my resume
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+
+  <footer class="footer" id="footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <!-- Footer Brand -->
+        <div class="footer-brand">
+          <h2 class="footer-name">Adeleye R. Oluwafemi</h2>
+
+          <p>
+            I build fast, accessible and responsive websites
+            that help brands look credible online.
+          </p>
+
+          <div class="footer-socials">
+
+            <a href="mailto:fadele238@gmail.com"
+               class="social-icon"
+               aria-label="Email">
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            </a>
+
+            <a href="tel:+2349032282164"
+               class="social-icon"
+               aria-label="Phone">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            </a>
+
+            <a href="https://wa.me/2349032282164"
+               class="social-icon"
+               aria-label="WhatsApp"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            </a>
+
+            <a href="https://web.facebook.com/femi.adeleye.568"
+               class="social-icon"
+               aria-label="Facebook"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            </a>
+
+            <a href="https://www.youtube.com/channel/UCPejS_ru_llkmYrVcKKxejg"
+               class="social-icon"
+               aria-label="YouTube"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+            </a>
+
+            <!-- Replace # with your actual GitHub profile URL -->
+            <a href="https://github.com/fadele238-source"
+               class="social-icon"
+               aria-label="GitHub">
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Footer Navigation -->
+        <div>
+          <h3 class="footer-heading">Navigate</h3>
+
+          <ul class="footer-links">
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="about.html">About</a>
+            </li>
+            <li>
+              <a href="services.html">Services</a>
+            </li>
+            <li>
+              <a href="skill.html">Skills</a>
+            </li>
+            <li>
+              <a href="project.html">Projects</a>
+            </li>
+            <li>
+              <a href="resume.html">Resume</a>
+            </li>
+            <li>
+              <a href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Footer Contact -->
+        <div>
+          <h3 class="footer-heading">Get in Touch</h3>
+
+          <div class="footer-contact-item">
+            <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            <a href="mailto:fadele238@gmail.com">fadele238@gmail.com</a>
+          </div>
+
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <a href="tel:+2349032282164">09032282164</a>
+          </div>
+
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+            <span>Nigeria — available worldwide (remote)</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; <span id="currentYear">2026</span>
+          Adeleye R. Oluwafemi. Built with care, code and coffee.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================== -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      /* -----------------------------------------
+         1. MOBILE NAVIGATION
+      ----------------------------------------- */
+
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+
+      function closeMobileMenu() {
+        navLinks.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute(
+          "aria-label",
+          "Open navigation menu"
+        );
+      }
+
+      menuToggle.addEventListener("click", function () {
+        const isOpen = navLinks.classList.toggle("is-open");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+
+        menuToggle.setAttribute(
+          "aria-label",
+          isOpen
+            ? "Close navigation menu"
+            : "Open navigation menu"
+        );
+      });
+
+      navLinks.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", closeMobileMenu);
+      });
+
+      // Close the menu when a user clicks outside the header.
+      document.addEventListener("click", function (event) {
+        if (
+          !event.target.closest(".site-header") &&
+          navLinks.classList.contains("is-open")
+        ) {
+          closeMobileMenu();
+        }
+      });
+
+      // Close the mobile menu when returning to desktop width.
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 900) {
+          closeMobileMenu();
+        }
+      });
+
+
+      /* -----------------------------------------
+         2. ACTIVE PAGE HIGHLIGHTING
+      ----------------------------------------- */
+
+      function normalisePath(path) {
+        return path.replace(/\/+$/, "").toLowerCase();
+      }
+
+      function setActiveNavigation() {
+        const currentPath = normalisePath(
+          window.location.pathname
+        );
+
+        navLinks.querySelectorAll("a").forEach(function (link) {
+          const linkURL = new URL(
+            link.href,
+            window.location.origin
+          );
+
+          const linkPath = normalisePath(linkURL.pathname);
+
+          const isActive = linkPath === currentPath;
+
+          link.classList.toggle("active", isActive);
+
+          if (isActive) {
+            link.setAttribute("aria-current", "page");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      }
+
+      setActiveNavigation();
+
+
+      /* -----------------------------------------
+         3. DARK / LIGHT THEME
+      ----------------------------------------- */
+
+      const themeToggle = document.getElementById("themeToggle");
+      const themeIcon = document.getElementById("themeIcon");
+
+      function updateThemeIcon(isLight) {
+        if (isLight) {
+          themeIcon.innerHTML = `
+            <circle cx="12" cy="12" r="4"
+                    stroke="currentColor"
+                    stroke-width="1.8"/>
+            <path d="M12 2v2m0 16v2
+                     M4.93 4.93l1.42 1.42
+                     m11.3 11.3 1.42 1.42
+                     M2 12h2m16 0h2
+                     M4.93 19.07l1.42-1.42
+                     m11.3-11.3 1.42-1.42"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"/>
+          `;
+
+          themeToggle.setAttribute(
+            "aria-label",
+            "Switch to dark theme"
+          );
+        } else {
+          themeIcon.innerHTML = `
+            <path d="M20.2 15.1A8.3 8.3 0 0 1 8.9 3.8
+                     8.5 8.5 0 1 0 20.2 15.1Z"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          `;
+
+          themeToggle.setAttribute(
+            "aria-label",
+            "Switch to light theme"
+          );
+        }
+      }
+
+      themeToggle.addEventListener("click", function () {
+        const isLight = document.body.classList.toggle("light-theme");
+        updateThemeIcon(isLight);
+      });
+
+
+      /* -----------------------------------------
+         4. SMOOTH SCROLLING FOR PAGE ANCHORS
+      ----------------------------------------- */
+
+      document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          const targetId = this.getAttribute("href");
+
+          // Do not treat an empty placeholder as a real link.
+          if (!targetId || targetId === "#") {
+            event.preventDefault();
+            return;
+          }
+
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            event.preventDefault();
+
+            targetElement.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+
+            closeMobileMenu();
+          }
+        });
+      });
+
+
+      /* -----------------------------------------
+         5. SKILLS PROGRESS-BAR ANIMATION
+      ----------------------------------------- */
+
+      const progressBars = document.querySelectorAll(
+        ".progress-bar-fill"
+      );
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animated");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.25 }
+        );
+
+        progressBars.forEach(function (bar) {
+          observer.observe(bar);
+        });
+      } else {
+        // Fallback for older browsers.
+        progressBars.forEach(function (bar) {
+          bar.classList.add("animated");
+        });
+      }
+
+
+      /* -----------------------------------------
+         6. AUTOMATIC COPYRIGHT YEAR
+      ----------------------------------------- */
+
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+
+    });
+  </script>
+
+</body>
+</html>

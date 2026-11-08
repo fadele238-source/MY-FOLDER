@@ -1,0 +1,1486 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skills - Adeleye R. Oluwafemi | Frontend Web Developer</title>
+    <meta name="description" content="Explore Adeleye R. Oluwafemi's web development skills, tools, video editing experience and learning roadmap.">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+        /* ========================================
+           1. RESET AND VARIABLES
+        ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0b0e14;
+            --bg-card: #121721;
+            --bg-card-hover: #181f2c;
+            --accent-orange: #f97316;
+            --accent-orange-bright: #fb923c;
+            --badge-bg: rgba(20, 184, 166, 0.12);
+            --badge-border: rgba(20, 184, 166, 0.3);
+            --badge-text: #2dd4bf;
+            --tag-bg: #161c28;
+            --tag-border: #252e3e;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            --border-color: #1e2634;
+            --header-bg: rgba(11, 14, 20, 0.94);
+            --footer-bg: #07090d;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 14px;
+            --radius-full: 9999px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behaviour: smooth;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        button {
+            font: inherit;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button:focus-visible,
+        a:focus-visible {
+            outline: 2px solid var(--accent-orange-bright);
+            outline-offset: 4px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ========================================
+           2. HEADER AND NAVIGATION
+        ======================================== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            background: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            min-height: 82px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .brand {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--text-main);
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(
+                135deg,
+                var(--accent-orange),
+                var(--accent-orange-bright)
+            );
+            color: #111827;
+            font-size: 1rem;
+            font-weight: 800;
+        }
+
+        .brand-name span {
+            color: var(--accent-orange-bright);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.35rem;
+        }
+
+        .main-nav a {
+            position: relative;
+            padding: 0.5rem 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--accent-orange-bright);
+        }
+
+        .main-nav a.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 2px;
+            border-radius: var(--radius-full);
+            background: var(--accent-orange);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--accent-orange);
+            border-radius: var(--radius-md);
+            background: var(--accent-orange);
+            color: #111827;
+            font-size: 0.82rem;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .btn-download:hover {
+            background: var(--accent-orange-bright);
+            border-color: var(--accent-orange-bright);
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background: var(--bg-card);
+            color: var(--text-main);
+            cursor: pointer;
+            font-size: 1.15rem;
+        }
+
+        .menu-toggle:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange-bright);
+        }
+
+        /* ========================================
+           3. SECTION LABELS AND HEADINGS
+        ======================================== */
+        .section-tag {
+            display: block;
+            margin-bottom: 0.75rem;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ========================================
+           4. SKILLS INTRO
+        ======================================== */
+        .skills-intro {
+            padding: 4.5rem 0 3.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .skills-intro-title {
+            max-width: 850px;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.035em;
+        }
+
+        .skills-intro-desc {
+            max-width: 780px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* ========================================
+           5. CORE PROFICIENCY
+        ======================================== */
+        .skills-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-subtitle {
+            margin-bottom: 2.5rem;
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2.5rem 3.5rem;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.65rem;
+        }
+
+        .skill-name-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .skill-name {
+            color: #ffffff;
+            font-size: 1.02rem;
+            font-weight: 700;
+        }
+
+        .learning-badge {
+            padding: 0.15rem 0.5rem;
+            border: 1px solid var(--badge-border);
+            border-radius: var(--radius-sm);
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .skill-percentage {
+            flex-shrink: 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .skill-bar-bg {
+            width: 100%;
+            height: 8px;
+            margin-bottom: 0.65rem;
+            overflow: hidden;
+            border-radius: var(--radius-full);
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .skill-bar-fill {
+            width: 0;
+            height: 100%;
+            border-radius: var(--radius-full);
+            background: linear-gradient(
+                90deg,
+                var(--accent-orange),
+                var(--accent-orange-bright)
+            );
+            transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .skill-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           6. TOOLS I WORK WITH
+        ======================================== */
+        .tools-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tools-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .tool-tag {
+            padding: 0.6rem 1.2rem;
+            border: 1px solid var(--tag-border);
+            border-radius: var(--radius-md);
+            background: var(--tag-bg);
+            color: var(--text-main);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .tool-tag:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-orange);
+            color: var(--accent-orange-bright);
+        }
+
+        /* ========================================
+           7. LEARNING ROADMAP
+        ======================================== */
+        .roadmap-section {
+            padding: 4rem 0 5rem;
+        }
+
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .roadmap-card {
+            padding: 2rem 1.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            background: var(--bg-card);
+            transition: var(--transition);
+        }
+
+        .roadmap-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(249, 115, 22, 0.4);
+            background: var(--bg-card-hover);
+        }
+
+        .roadmap-card h3 {
+            margin-bottom: 0.85rem;
+            color: #ffffff;
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .roadmap-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        /* ========================================
+           8. FOOTER
+        ======================================== */
+        .site-footer {
+            padding: 4.5rem 0 2rem;
+            border-top: 1px solid var(--border-color);
+            background: var(--footer-bg);
+            color: var(--text-muted);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 3.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .footer-name {
+            margin-bottom: 0.85rem;
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+        .footer-name span {
+            color: var(--accent-orange-bright);
+        }
+
+        .footer-description {
+            max-width: 340px;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer-heading {
+            margin-bottom: 1.25rem;
+            color: var(--text-main);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover,
+        .footer-contact-item a:hover {
+            color: var(--accent-orange-bright);
+        }
+
+        .footer-contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            overflow-wrap: anywhere;
+        }
+
+        .footer-contact-item i {
+            width: 18px;
+            margin-top: 0.25rem;
+            color: var(--accent-orange);
+            text-align: center;
+        }
+
+        .footer-socials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            width: 38px;
+            height: 38px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            background: var(--bg-card);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-orange);
+            color: var(--accent-orange-bright);
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        .back-to-top {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .back-to-top:hover {
+            color: var(--accent-orange-bright);
+        }
+
+        /* ========================================
+           9. RESPONSIVE DESIGN
+        ======================================== */
+        @media (max-width: 1050px) {
+            .header-inner {
+                gap: 1rem;
+            }
+
+            .main-nav {
+                gap: 0.9rem;
+            }
+
+            .main-nav a {
+                font-size: 0.8rem;
+            }
+
+            .brand {
+                font-size: 0.95rem;
+            }
+
+            .btn-download {
+                padding: 0.7rem 0.8rem;
+                font-size: 0.78rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .header-inner {
+                min-height: 74px;
+            }
+
+            .menu-toggle {
+                display: inline-flex;
+            }
+
+            .main-nav {
+                position: fixed;
+                top: 74px;
+                left: 0;
+                right: 0;
+                z-index: 999;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: flex-start;
+                gap: 0;
+                max-height: calc(100vh - 74px);
+                padding: 1rem 1.5rem 1.5rem;
+                overflow-y: auto;
+                border-bottom: 1px solid var(--border-color);
+                background: #0b0e14;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-8px);
+                transition: opacity 0.25s ease,
+                            transform 0.25s ease,
+                            visibility 0.25s ease;
+            }
+
+            .main-nav.is-open {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .main-nav a {
+                padding: 0.95rem 0;
+                border-bottom: 1px solid var(--border-color);
+                font-size: 0.95rem;
+            }
+
+            .main-nav a.active::after {
+                display: none;
+            }
+
+            .main-nav a.active {
+                color: var(--accent-orange-bright);
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .roadmap-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 2.5rem;
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 1.1rem;
+            }
+
+            .header-inner {
+                padding: 0 1.1rem;
+                gap: 0.75rem;
+            }
+
+            .brand {
+                font-size: 0.88rem;
+                gap: 0.5rem;
+            }
+
+            .brand-mark {
+                width: 34px;
+                height: 34px;
+                font-size: 0.9rem;
+            }
+
+            .btn-download {
+                width: 40px;
+                height: 40px;
+                padding: 0;
+                font-size: 1rem;
+            }
+
+            .btn-download .download-text {
+                display: none;
+            }
+
+            .skills-intro {
+                padding: 3.25rem 0 2.75rem;
+            }
+
+            .skills-intro-title {
+                font-size: 2rem;
+            }
+
+            .skills-intro-desc {
+                font-size: 0.95rem;
+            }
+
+            .skills-section,
+            .tools-section {
+                padding: 3rem 0;
+            }
+
+            .roadmap-section {
+                padding: 3rem 0 3.5rem;
+            }
+
+            .section-subtitle {
+                margin-bottom: 1.75rem;
+                font-size: 1.25rem;
+            }
+
+            .roadmap-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .roadmap-card {
+                padding: 1.5rem;
+            }
+
+            .tools-tags {
+                gap: 0.5rem;
+            }
+
+            .tool-tag {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.82rem;
+            }
+
+            .site-footer {
+                padding: 3.25rem 0 1.75rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .footer-brand {
+                grid-column: auto;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- ========================================
+         HEADER
+    ======================================== -->
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a class="brand"
+               href="http://localhost/ofemfirstdb/index.php/"
+               aria-label="Adeleye R. Oluwafemi - Home">
+
+                <span class="brand-mark">AO</span>
+
+                <span class="brand-name">
+                    Adeleye R. <span>Oluwafemi</span>
+                </span>
+            </a>
+
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="services.html">
+                    Services
+                </a>
+
+                <a href="skill.html"
+                   class="active"
+                   aria-current="page">
+                    Skills
+                </a>
+
+                <a href="project.html">
+                    Projects
+                </a>
+
+                <a href="resume.html">
+                    Resume
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </nav>
+
+            <div class="header-actions">
+
+                <a class="btn-download"
+                   href="./ASSET FOLDER/Adeleye-Oluwafemi-CV (6).pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Download CV">
+
+                    <i class="fa-solid fa-download" aria-hidden="true"></i>
+                    <span class="download-text">Download CV</span>
+                </a>
+
+                <button class="menu-toggle"
+                        id="menuToggle"
+                        type="button"
+                        aria-label="Open navigation menu"
+                        aria-controls="mainNav"
+                        aria-expanded="false">
+
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+
+            </div>
+        </div>
+    </header>
+
+
+    <!-- ========================================
+         MAIN SKILLS PAGE
+    ======================================== -->
+    <main>
+
+        <!-- SKILLS INTRO SECTION -->
+        <section class="skills-intro">
+            <div class="container">
+
+                <span class="section-tag">Skills</span>
+
+                <h1 class="skills-intro-title">
+                    What I know &mdash; and what I'm learning next
+                </h1>
+
+                <p class="skills-intro-desc">
+                    Honest levels rather than inflated ones. The bars animate
+                    as you scroll; the badges show where I'm still building depth.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- CORE PROFICIENCY SECTION -->
+        <section class="skills-section">
+            <div class="container">
+
+                <h2 class="section-subtitle">Core proficiency</h2>
+
+                <div class="skills-grid">
+
+                    <!-- HTML5 -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+
+                            <div class="skill-name-container">
+                                <span class="skill-name">HTML5</span>
+                            </div>
+
+                            <span class="skill-percentage">90%</span>
+                        </div>
+
+                        <div class="skill-bar-bg"
+                             role="progressbar"
+                             aria-label="HTML5 proficiency"
+                             aria-valuemin="0"
+                             aria-valuemax="100"
+                             aria-valuenow="90">
+
+                            <div class="skill-bar-fill"
+                                 data-progress="90%"></div>
+                        </div>
+
+                        <span class="skill-desc">
+                            Semantic structure and accessibility
+                        </span>
+                    </div>
+
+
+                    <!-- CSS3 -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+
+                            <div class="skill-name-container">
+                                <span class="skill-name">CSS3</span>
+                            </div>
+
+                            <span class="skill-percentage">85%</span>
+                        </div>
+
+                        <div class="skill-bar-bg"
+                             role="progressbar"
+                             aria-label="CSS3 proficiency"
+                             aria-valuemin="0"
+                             aria-valuemax="100"
+                             aria-valuenow="85">
+
+                            <div class="skill-bar-fill"
+                                 data-progress="85%"></div>
+                        </div>
+
+                        <span class="skill-desc">
+                            Flexbox, Grid and animations
+                        </span>
+                    </div>
+
+
+                    <!-- JAVASCRIPT -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+
+                            <div class="skill-name-container">
+                                <span class="skill-name">JavaScript</span>
+                            </div>
+
+                            <span class="skill-percentage">75%</span>
+                        </div>
+
+                        <div class="skill-bar-bg"
+                             role="progressbar"
+                             aria-label="JavaScript proficiency"
+                             aria-valuemin="0"
+                             aria-valuemax="100"
+                             aria-valuenow="75">
+
+                            <div class="skill-bar-fill"
+                                 data-progress="75%"></div>
+                        </div>
+
+                        <span class="skill-desc">
+                            DOM, ES6+ and fetch APIs
+                        </span>
+                    </div>
+
+
+                    <!-- CAPCUT -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+
+                            <div class="skill-name-container">
+                                <span class="skill-name">
+                                    CapCut (Video Editing)
+                                </span>
+                            </div>
+
+                            <span class="skill-percentage">80%</span>
+                        </div>
+
+                        <div class="skill-bar-bg"
+                             role="progressbar"
+                             aria-label="CapCut video editing proficiency"
+                             aria-valuemin="0"
+                             aria-valuemax="100"
+                             aria-valuenow="80">
+
+                            <div class="skill-bar-fill"
+                                 data-progress="80%"></div>
+                        </div>
+
+                        <span class="skill-desc">
+                            Promotional edits and motion content
+                        </span>
+                    </div>
+
+
+                    <!-- REACT -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+
+                            <div class="skill-name-container">
+                                <span class="skill-name">React</span>
+                                <span class="learning-badge">Learning</span>
+                            </div>
+
+                            <span class="skill-percentage">35%</span>
+                        </div>
+
+                        <div class="skill-bar-bg"
+                             role="progressbar"
+                             aria-label="React learning progress"
+                             aria-valuemin="0"
+                             aria-valuemax="100"
+                             aria-valuenow="35">
+
+                            <div class="skill-bar-fill"
+                                 data-progress="35%"></div>
+                        </div>
+
+                        <span class="skill-desc">
+                            Currently learning components, props and state
+                        </span>
+                    </div>
+
+
+                    <!-- GIT AND GITHUB -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+
+                            <div class="skill-name-container">
+                                <span class="skill-name">Git &amp; GitHub</span>
+                                <span class="learning-badge">Learning</span>
+                            </div>
+
+                            <span class="skill-percentage">40%</span>
+                        </div>
+
+                        <div class="skill-bar-bg"
+                             role="progressbar"
+                             aria-label="Git and GitHub learning progress"
+                             aria-valuemin="0"
+                             aria-valuemax="100"
+                             aria-valuenow="40">
+
+                            <div class="skill-bar-fill"
+                                 data-progress="40%"></div>
+                        </div>
+
+                        <span class="skill-desc">
+                            Currently learning version control and collaboration
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- TOOLS I WORK WITH -->
+        <section class="tools-section">
+            <div class="container">
+
+                <h2 class="section-subtitle">Tools I work with</h2>
+
+                <div class="tools-tags">
+                    <span class="tool-tag">VS Code</span>
+                    <span class="tool-tag">Chrome DevTools</span>
+                    <span class="tool-tag">Figma (basics)</span>
+                    <span class="tool-tag">Netlify</span>
+                    <span class="tool-tag">Tailwind CSS (basics)</span>
+                    <span class="tool-tag">CapCut</span>
+                    <span class="tool-tag">Canva</span>
+                    <span class="tool-tag">Responsive testing</span>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- LEARNING ROADMAP -->
+        <section class="roadmap-section">
+            <div class="container">
+
+                <h2 class="section-subtitle">Learning roadmap</h2>
+
+                <div class="roadmap-grid">
+
+                    <!-- REACT ROADMAP -->
+                    <article class="roadmap-card">
+                        <h3>
+                            <i class="fa-brands fa-react"
+                               aria-hidden="true"></i>
+                            React
+                        </h3>
+
+                        <p>
+                            Components, props and state — moving from static
+                            pages to interactive interfaces.
+                        </p>
+                    </article>
+
+
+                    <!-- GIT AND GITHUB ROADMAP -->
+                    <article class="roadmap-card">
+                        <h3>
+                            <i class="fa-brands fa-github"
+                               aria-hidden="true"></i>
+                            Git &amp; GitHub
+                        </h3>
+
+                        <p>
+                            Branching, pull requests and a clean commit history
+                            for collaborative development.
+                        </p>
+                    </article>
+
+
+                    <!-- PERFORMANCE ROADMAP -->
+                    <article class="roadmap-card">
+                        <h3>
+                            <i class="fa-solid fa-gauge-high"
+                               aria-hidden="true"></i>
+                            Web performance
+                        </h3>
+
+                        <p>
+                            Image optimisation, lazy loading and Core Web Vitals
+                            as a habit, not an afterthought.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <!-- FOOTER BRAND -->
+                <div class="footer-brand">
+
+                    <h2 class="footer-name">
+                        Adeleye R. <span>Oluwafemi</span>
+                    </h2>
+
+                    <p class="footer-description">
+                        Frontend web developer building responsive websites,
+                        engaging landing pages and digital experiences for
+                        businesses, churches, schools and creators.
+                    </p>
+
+                    <div class="footer-socials">
+
+                        <a class="social-icon"
+                           href="mailto:fadele238@gmail.com"
+                           aria-label="Send an email">
+
+                            <i class="fa-solid fa-envelope"
+                               aria-hidden="true"></i>
+                        </a>
+
+                        <a class="social-icon"
+                           href="https://wa.me/2349032282164"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Contact me on WhatsApp">
+
+                            <i class="fa-brands fa-whatsapp"
+                               aria-hidden="true"></i>
+                        </a>
+
+                        <a class="social-icon"
+                           href="https://web.facebook.com/femi.adeleye.568"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Visit my Facebook profile">
+
+                            <i class="fa-brands fa-facebook-f"
+                               aria-hidden="true"></i>
+                        </a>
+
+                        <a class="social-icon"
+                           href="https://www.youtube.com/channel/UCPejS_ru_llkmYrVcKKxejg"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Visit my YouTube channel">
+
+                            <i class="fa-brands fa-youtube"
+                               aria-hidden="true"></i>
+                        </a>
+
+                         <a href="https://github.com/fadele238-source"
+                           class="social-icon"
+                           aria-label="GitHub profile not yet configured"
+                           title="Add your GitHub profile URL"
+                           data-placeholder-link>
+                            <i class="fa-brands fa-github"
+                               aria-hidden="true"></i>
+                        </a>
+
+
+                    </div>
+                </div>
+
+
+                <!-- FOOTER NAVIGATION -->
+                <div class="footer-navigation">
+
+                    <h3 class="footer-heading">Navigate</h3>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="index.html">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="about.html">
+                                About
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="services.html">
+                                Services
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="skill.html"
+                               aria-current="page">
+                                Skills
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="project.html">
+                                Projects
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="resume.html">
+                                Resume
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+                <!-- FOOTER CONTACT -->
+                <div class="footer-contact">
+
+                    <h3 class="footer-heading">Get in touch</h3>
+
+                    <div class="footer-contact-list">
+
+                        <div class="footer-contact-item">
+                            <i class="fa-solid fa-envelope"
+                               aria-hidden="true"></i>
+
+                            <a href="mailto:fadele238@gmail.com">
+                                fadele238@gmail.com
+                            </a>
+                        </div>
+
+                        <div class="footer-contact-item">
+                            <i class="fa-solid fa-phone"
+                               aria-hidden="true"></i>
+
+                            <a href="tel:+2349032282164">
+                                09032282164
+                            </a>
+                        </div>
+
+                        <div class="footer-contact-item">
+                            <i class="fa-solid fa-location-dot"
+                               aria-hidden="true"></i>
+
+                            <span>Nigeria — available worldwide</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- COPYRIGHT -->
+            <div class="footer-bottom">
+
+                <p>
+                    &copy; <span id="currentYear"></span>
+                    Adeleye R. Oluwafemi. All rights reserved.
+                </p>
+
+                <a class="back-to-top" href="#top">
+                    Back to top
+                    <i class="fa-solid fa-arrow-up"
+                       aria-hidden="true"></i>
+                </a>
+
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- ========================================
+         JAVASCRIPT
+    ======================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* ------------------------------------
+               1. MOBILE NAVIGATION
+            ------------------------------------ */
+            const menuToggle = document.getElementById('menuToggle');
+            const mainNav = document.getElementById('mainNav');
+            const menuIcon = menuToggle.querySelector('i');
+
+            function closeMenu() {
+                mainNav.classList.remove('is-open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.setAttribute('aria-label', 'Open navigation menu');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+                document.body.classList.remove('menu-open');
+            }
+
+            function openMenu() {
+                mainNav.classList.add('is-open');
+                menuToggle.setAttribute('aria-expanded', 'true');
+                menuToggle.setAttribute('aria-label', 'Close navigation menu');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+                document.body.classList.add('menu-open');
+            }
+
+            menuToggle.addEventListener('click', function () {
+                const isOpen =
+                    menuToggle.getAttribute('aria-expanded') === 'true';
+
+                if (isOpen) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            });
+
+            // Close the menu when a navigation link is selected.
+            mainNav.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // Close the menu when the Escape key is pressed.
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') {
+                    closeMenu();
+                }
+            });
+
+            // Close the mobile menu when switching to desktop width.
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 900) {
+                    closeMenu();
+                }
+            });
+
+
+            /* ------------------------------------
+               2. ANIMATE SKILLS BARS ON SCROLL
+            ------------------------------------ */
+            const skillBars =
+                document.querySelectorAll('.skill-bar-fill');
+
+            if ('IntersectionObserver' in window) {
+
+                const observerOptions = {
+                    threshold: 0.2
+                };
+
+                const skillObserver = new IntersectionObserver(
+                    function (entries, observer) {
+
+                        entries.forEach(function (entry) {
+
+                            if (entry.isIntersecting) {
+                                const bar = entry.target;
+                                const targetWidth =
+                                    bar.getAttribute('data-progress');
+
+                                bar.style.width = targetWidth;
+
+                                observer.unobserve(bar);
+                            }
+                        });
+
+                    },
+                    observerOptions
+                );
+
+                skillBars.forEach(function (bar) {
+                    skillObserver.observe(bar);
+                });
+
+            } else {
+                // Fallback for browsers without IntersectionObserver.
+                skillBars.forEach(function (bar) {
+                    bar.style.width =
+                        bar.getAttribute('data-progress');
+                });
+            }
+
+
+            /* ------------------------------------
+               3. DYNAMIC COPYRIGHT YEAR
+            ------------------------------------ */
+            const yearElement = document.getElementById('currentYear');
+
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+
+
+            /* ------------------------------------
+               4. SMOOTH SCROLL FOR PAGE ANCHORS
+            ------------------------------------ */
+            document.querySelectorAll('a[href^="#"]').forEach(
+                function (link) {
+
+                    link.addEventListener('click', function (event) {
+
+                        const targetId = this.getAttribute('href');
+
+                        if (!targetId || targetId === '#') {
+                            return;
+                        }
+
+                        const targetElement =
+                            document.querySelector(targetId);
+
+                        if (targetElement) {
+                            event.preventDefault();
+
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    });
+                }
+            );
+
+        });
+    </script>
+
+</body>
+</html>
